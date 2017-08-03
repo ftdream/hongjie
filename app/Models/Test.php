@@ -1,0 +1,10 @@
+<?php
+
+namespace HongeGroup\Models;
+use Illuminate\Database\Eloquent\Model;
+
+class Test extends Model
+{
+	protected $table = 'test';
+	public $timestamps = false;
+}
