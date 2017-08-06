@@ -227,7 +227,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-	'DingTalk' => DingTalk\Facades\DingTalk::class,
+	    'DingTalk' => DingTalk\Facades\DingTalk::class,
     ],
 
 ];
