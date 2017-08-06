@@ -14,4 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', 'TestController@getIndex');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware'=> 'adminauth'], function () {
+});
+
+Route::group(['prefix' => 'withdraw', 'namespace' => 'DingTalk'], function () {
+    Route::get('index', 'WithdrawController@getIndex');
+});

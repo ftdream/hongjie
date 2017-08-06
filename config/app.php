@@ -179,6 +179,7 @@ return [
         HongeGroup\Providers\RouteServiceProvider::class,
 	
 		DingTalk\DingTalkServiceProvider::class,		
+        HongeGroup\Providers\UserValidationProvider::class,
     ],
 
     /*
