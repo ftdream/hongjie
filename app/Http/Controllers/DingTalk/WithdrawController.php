@@ -7,6 +7,7 @@ use HongeGroup\Models\User;
 use HongeGroup\Http\Controllers\Controller;
 use HongeGroup\Http\Controllers\Consts;
 use DingTalk;
+use HongeGroup\Models\WithDraw;
 
 class WithdrawController extends Controller
 {
@@ -14,7 +15,23 @@ class WithdrawController extends Controller
     }
 
     public function getIndex(Request $request){
-        dd(DingTalk::getConfig());
-        return view('welcome');
+        //dd(DingTalk::getConfig());
+        $withDrawLists = WithDraw::orderBy('created_at', 'desc')
+                            ->select('id', 'project_name', 'created_at')
+                            ->paginate('20');
+        dd( $withDrawLists);
+        return view('withdraw.index');
     }
+
+    public function getInfo(Request $request){
+    
+    }
+
+    public function getStep1(Request $request){
+    
+    }
+
+    public function postStep1(Request $request){
+        
+    } 
 }
