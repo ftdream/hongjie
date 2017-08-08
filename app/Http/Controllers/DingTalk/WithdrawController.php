@@ -27,8 +27,8 @@ class WithdrawController extends Controller
     
     }
 
-    public function getStep1(Request $request){
-    
+    public function getAdd(Request $request){
+        return view('withdraw.add');
     }
 
     public function postStep1(Request $request){

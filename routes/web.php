@@ -20,4 +20,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware'=> 'admin
 
 Route::group(['prefix' => 'withdraw', 'namespace' => 'DingTalk'], function () {
     Route::get('index', 'WithdrawController@getIndex');
+    Route::get('add', 'WithdrawController@getAdd');
 });
