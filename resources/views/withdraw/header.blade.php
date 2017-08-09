@@ -9,7 +9,9 @@
         <meta name="MobileOptimized" content="320">
         <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <link href="/assets/css/withdraw.css" rel="stylesheet">
-        
+        <script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+        <script src="/assets/js/DatePicker/WdatePicker.js" type="text/javascript"></script>
+        <script src="/assets/js/common.js" type="text/javascript"></script>
     </head>
     <body class="home-template">
         <div class="header" style="background-image: url(/assets/images/withdraw/banner.jpg)">
