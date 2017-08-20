@@ -17,7 +17,7 @@ class CreateHongjieWithdrawTable extends Migration
         Schema::create(self::TABLE_NAME, function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->unsignedInteger('id');
+            $table->increments('id');
             $table->unsignedInteger('user_id')->default(0)->comment('用户id');
             $table->string('project_name')->default('')->comment('工程名称');
             $table->string('contract_number', 50)->default('')->comment('合同编号');
@@ -38,7 +38,6 @@ class CreateHongjieWithdrawTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->primary('id');
         });
 
     }

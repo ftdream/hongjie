@@ -4,17 +4,60 @@
 @section('content')
 <div class="content">
     <div class="content_body">
-        <div class="the_path"><a href="/general/hongjie">首页</a> >开票取款申请单</div>
+        <div class="the_path"><a href="/withdraw/index">首页</a> >开票取款申请单</div>
         <div class="content_box">
             <div class="top_line2"></div>
             <div class="the_content">
                 <div class="the_left">
                     <div>
-                        <form id="searchform" action="post_step1.php" method="post" onsubmit="return check();">
-                            <input type="hidden" name="infoId" value=""/>
+                        <form id="searchform" action="/withdraw/ajax_step1" method="post" onsubmit="return check();">
+                             {{ csrf_field() }}
+                            <input type="hidden" name="info_id" value=""/>
                             <table class="table table-bordered">
                                 <tbody>
-
+                                    @if($withdraw)
+                                    <tr>
+                                        <td>合同编号</td>
+                                        <td>{{$withdraw->contract_number}}</td>
+                                        <td>合同签订日期</td>
+                                        <td>{{date('Y-m-d', $withdraw->contract_time)}}</td>
+                                        <td>合同金额</td>
+                                        <td>{{$withdraw->contract_amount}}</td>
+                                        <td>申请日期</td>
+                                        <td>{{date('Y-m-d', $withdraw->apply_time)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>合同及洽商金额</td>
+                                        <td colspan="3">{{$withdraw->contract_talk_amount}}</td>
+                                        <td>洽商金额</td>
+                                        <td>{{$withdraw->talk_amount}}</td>
+                                        <td>洽商内容</td>
+                                        <td>{{$withdraw->talk}}</td>
+                                    </tr>
+                                
+                                    <tr>
+                                        <td>甲方名称</td>
+                                        <td colspan="3"><span>{{$withdraw->party_a_name}}</span></td>
+                                        <td>项目经理及电话</td>
+                                        <td>{{$withdraw->project_manager}}</td>
+                                        <td>紧急联系人及电话</td>
+                                        <td>{{$withdraw->emergency_mobile}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>工程名称</td>
+                                        <td colspan="3">{{$withdraw->project_name}}</td>
+                                        <td>开工日期</td>
+                                        <td>{{date('Y-m-d', $withdraw->begin_time)}}</td>
+                                        <td>竣工日期</td>
+                                        <td>{{date('Y-m-d', $withdraw->end_time)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>本项目应收账款</td>
+                                        <td colspan="3">{{$projectTakeAmount}}</td>
+                                        <td>开票回款累计</td>
+                                        <td colspan="3">{{$projectBackSum}}</td>
+                                    </tr>
+                                    @else
                                     <tr>
                                         <td>合同编号</td>
                                         <td><input type="text" name="contract_number" id="contract_number"></td>
@@ -56,12 +99,13 @@
                                         <td>开票回款累计</td>
                                         <td colspan="3"><input type="text" name="project_back_sum" id="project_back_sum"></td>
                                     </tr>
+                                    @endif
                                     <tr>
                                         <td>本次开票金额</td>
                                         <td><input type="text" name="note_amount" id="note_amount" onblur="addSum()"></td>
                                         <td>开票日期</td>
                                         <td><input type="text" name="note_time" id="note_time" onFocus="WdatePicker({isShowClear:true,readOnly:true});" readonly id="note_time"></td>
-                                        <td colspan="2">累计开票金额<input type="hidden" id="note_amount_hidden"></td>
+                                        <td colspan="2">累计开票金额<input type="hidden" id="note_amount_hidden" value="{{$noteAmountSum}}"></td>
                                         <td colspan="2"><input type="text" name="NOTE_AMOUNT_SUM" id="note_amount_sum" disabled ></td>
                                    
                                     </tr>
@@ -69,7 +113,7 @@
                                         <td>本次回款金额</td>
                                         <td><input type="text" name="note_back_amount" id="note_back_amount" readonly disabled></td>
                                         <td>回款日期</td>
-                                        <td><input type="text" name="note_back_time" id="note_back_time" onFocus="WdatePicker({isShowClear:true,readOnly:true});" readonly></td>
+                                        <td><input type="text" name="note_back_time" id="note_back_time" onFocus="WdatePicker({isShowClear:true,readOnly:true});" readonly disabled></td>
                                         <td colspan="2">累计回款金额</td>
                                         <td colspan="2"><input type="text" name="NOTE_BACK_AMOUNT_SUM" readonly disabled></td>
                                     

@@ -19,6 +19,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware'=> 'admin
 });
 
 Route::group(['prefix' => 'withdraw', 'namespace' => 'DingTalk'], function () {
-    Route::get('index', 'WithdrawController@getIndex');
+    Route::get('index', ['as' => 'withdraw-index', 'uses' => 'WithdrawController@getIndex']);
     Route::get('add', 'WithdrawController@getAdd');
+    Route::get('step2', 'WithdrawController@getStep2');
+    Route::post('ajax_step1', 'WithdrawController@postAjaxStep1');
+    Route::post('ajax_step2', 'WithdrawController@postAjaxStep2');
 });

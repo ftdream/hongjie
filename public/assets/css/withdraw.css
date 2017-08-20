@@ -100,8 +100,8 @@ body .mar_l0{margin-left:0}
 .logo_img{background:rgba(0,0,0,0) url("/assets/images/front/logo_img.jpg") no-repeat scroll 0 0;height:52px;margin-right:22px;margin-top:14px;width:85px}
 .logo_title{background:rgba(0,0,0,0) url("/assets/images/front/logo_title_01.jpg") no-repeat scroll 0 0;height:14px;margin-top:32px}
 .l_search{background-position:0 0;width:155px}
-.content{background:rgba(0,0,0,0) url("") repeat scroll 0 0;padding-bottom:25px;padding-top:5px; padding-left: 150px;}
-.content_body{margin: 0 auto 0 60px;width:800px}
+.content{background:rgba(0,0,0,0) url("") repeat scroll 0 0;position: relative; margin: 0 auto;}
+.content_body{margin: 0 auto;width:800px}
 .top_title{height:46px;line-height:46px;margin:0 auto;width:980px}
 .top_title label{display:inline-block;font-family:"微软雅黑";font-size:20px}
 .advanced_s{border-bottom:4px solid #d50080;width:132px}

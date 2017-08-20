@@ -17,7 +17,7 @@ class CreateHongjieWithdrawDataTable extends Migration
         Schema::create(self::TABLE_NAME, function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
-            $table->unsignedInteger('id');
+            $table->increments('id');
             $table->unsignedInteger('withdraw_id')->default(0)->comment('申请表id');
             $table->decimal('note_amount', 12, 2)->default(0.00)->comment('本次开票金额');
             $table->unsignedInteger('note_time')->default(0)->comment('开票日期');
@@ -47,7 +47,6 @@ class CreateHongjieWithdrawDataTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->primary('id');
             $table->index('withdraw_id'); 
         });
     }
